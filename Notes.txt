@@ -1,0 +1,6 @@
+useEffect(()=>{},[arg1]);
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+The Effect Hook lets you perform side effects in function components:
+ NOTE:- The meaning of passing arg1 is, that useEffect will only run if the value of arg1 changes otherwise it will skip and improve the performance
+ it is similiar like we use to do in componentDidUpdate(), by checking prevstate/prevProps with currentstate/currentProps
