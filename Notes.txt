@@ -4,3 +4,11 @@ Hooks are a new addition in React 16.8. They let you use state and other React f
 The Effect Hook lets you perform side effects in function components:
  NOTE:- The meaning of passing arg1 is, that useEffect will only run if the value of arg1 changes otherwise it will skip and improve the performance
  it is similiar like we use to do in componentDidUpdate(), by checking prevstate/prevProps with currentstate/currentProps
+
+ ##Lesson3.16
+ To use ECMAscript (import/export syntax) instead of Commonjs (require syntax) in node.js we reuqire following things:-
+ - Your node version should be greater than or equal to 14.16.0
+ - add `type: "module"` in pacakage.json
+ - make sure you are not using module.exports or require in code.
+ - while importing any file please add .js extension 
+    i.e import products from "./data/products.js";
