@@ -6,10 +6,10 @@ app.get("/api/products", (req, res) => {
   res.json(products);
 });
 
-app.get("/api/product/:id", (req, res) => {
+app.get("/api/products/:id", (req, res) => {
   const { id } = req.params;
   const product = products.find(({ _id }) => id === _id);
   res.json(product);
 });
 
-app.listen(5000, console.log("Server is running on 5000"));
+app.listen(5001, console.log("Server is running on 5001"));
