@@ -33,6 +33,7 @@
     "mongoose": "^6.5.4"
   },
   "devDependencies": {
+    "colors": "^1.4.0",
     "concurrently": "^7.3.0",
     "nodemon": "^2.0.19"
   }
