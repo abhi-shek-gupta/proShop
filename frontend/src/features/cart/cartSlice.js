@@ -26,6 +26,14 @@ const cartSlice = createSlice({
         };
       }
     },
+    removeFromCart(state, { payload }) {
+      const cartItems = state.cartItems.filter((x) => x.product !== payload.id);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      return {
+        ...state,
+        cartItems: [...cartItems],
+      };
+    },
   },
 });
 
@@ -43,6 +51,7 @@ export const addToCart = createAsyncThunk(
           name: data.name,
           image: data.image,
           price: data.price,
+          countInStock: data.countInStock,
           qty,
         })
       );
@@ -58,4 +67,5 @@ export const addToCart = createAsyncThunk(
   }
 );
 
+export const { removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
