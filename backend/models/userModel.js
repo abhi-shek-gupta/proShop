@@ -29,6 +29,16 @@ const userSchema = mongoose.Schema(
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
+
+// call the middleware before saving the document
+userSchema.pre("save", async function (next) {
+  // not to call the middleware if password is not passed or modified
+  if (!this.isModified("password")) {
+    next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
 const User = mongoose.model("User", userSchema);
 
 export default User;
