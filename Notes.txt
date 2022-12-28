@@ -18,3 +18,6 @@ The Effect Hook lets you perform side effects in function components:
 Thunk:- Redux Thunk allows us to add function within a function 
 code pattern Thunk->
 it's an middleware that allows a store to accept a function as a dispatching things. it's basically a way to let you write logic that talks to a store ahead of time, seperate from components, without knowing what store is going to talk to. and 
+
+#improvement 
+spacing on login screen
