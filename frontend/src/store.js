@@ -7,6 +7,7 @@ import userLoginReducer from "./features/user/userSlice";
 import userRegisterReducer from "./features/user/userRegisterSlice";
 import useDetailsReducer from "./features/user/userDetailsSlice";
 import updateUserProfileReducer from "./features/user/userProfileUpdateSlice";
+import orderCreateReducer from "./features/order/orderCreateSlice";
 
 const reducer = {
   productList: productReducer,
@@ -16,6 +17,7 @@ const reducer = {
   userRegister: userRegisterReducer,
   userDetails: useDetailsReducer,
   userUpdateProfile: updateUserProfileReducer,
+  orderCreate: orderCreateReducer,
 };
 const cartItemsFromLocalStorage = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
@@ -25,9 +27,14 @@ const userInfoFromLocalStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
   : null;
 
+const shippingAddressFromLocalStorage = localStorage.getItem("shippingAddress")
+  ? JSON.parse(localStorage.getItem("shippingAddress"))
+  : {};
+
 const preloadedState = {
   cart: {
     cartItems: cartItemsFromLocalStorage,
+    shippingAddress: shippingAddressFromLocalStorage,
   },
   userLogin: { userInfo: userInfoFromLocalStorage },
 }; // initialState of the redux

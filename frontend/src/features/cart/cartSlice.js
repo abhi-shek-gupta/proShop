@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   cartItems: [],
+  shippingAddress: {},
 };
 const cartSlice = createSlice({
   name: "cart",
@@ -32,6 +33,20 @@ const cartSlice = createSlice({
       return {
         ...state,
         cartItems: [...cartItems],
+      };
+    },
+    saveShippingAddress(state, { payload }) {
+      localStorage.setItem("shippingAddress", JSON.stringify(payload));
+      return {
+        ...state,
+        shippingAddress: payload,
+      };
+    },
+    savePaymentMethod(state, { payload }) {
+      localStorage.setItem("paymentMethod", JSON.stringify(payload));
+      return {
+        ...state,
+        paymentMethod: payload,
       };
     },
   },
@@ -67,5 +82,6 @@ export const addToCart = createAsyncThunk(
   }
 );
 
-export const { removeFromCart } = cartSlice.actions;
+export const { removeFromCart, saveShippingAddress, savePaymentMethod } =
+  cartSlice.actions;
 export default cartSlice.reducer;
